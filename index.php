@@ -10,6 +10,10 @@ foreach ($records as $record) {
         'CHECKTYPE' => $record['CHECKTYPE']
     ]);
 }
+$count = $mysql_conn->table('checkinout')->count();
 
+session_start();
+$_SESSION['message'] = 'รายการทั้งหมด '.$count.' แถว';
 
-
+header("location:javascript://history.go(-1)");
+exit;
